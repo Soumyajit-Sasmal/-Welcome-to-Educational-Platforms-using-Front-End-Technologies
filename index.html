@@ -1,0 +1,860 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Spoken </title>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body, html {
+            height: 100%;
+            font-family: 'Roboto', sans-serif;
+        }
+
+        .hero {
+            background: url('https://images.unsplash.com/photo-1523240795612-9a054b0db644?auto=format&fit=crop&w=1650&q=80') no-repeat center center/cover;
+            height: 100vh;
+            color: white;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            position: relative;
+        }
+
+        .overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-color: rgba(0, 0, 0, 0.6);
+        }
+
+        .content {
+            position: relative;
+            z-index: 1;
+        }
+
+        .content h1 {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+        }
+
+        .content h2 {
+            font-size: 1.8rem;
+            font-weight: 400;
+            margin-bottom: 1rem;
+        }
+
+        .content p {
+            font-size: 1.2rem;
+            margin-bottom: 2rem;
+        }
+
+        .scroll-btn {
+            margin-top: 20px;
+            font-size: 1.5rem;
+            animation: bounce 2s infinite;
+        }
+
+        @keyframes bounce {
+            0%, 100% {
+                transform: translateY(0);
+            }
+            50% {
+                transform: translateY(-10px);
+            }
+        }
+
+        nav {
+            position: absolute;
+            top: 0;
+            width: 100%;
+            padding: 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            z-index: 2;
+        }
+
+        nav .logo {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: white;
+        }
+
+        nav .menu-toggle {
+            font-size: 1.8rem;
+            color: white;
+            cursor: pointer;
+        }
+
+        .features {
+            background-color: #f5f5f5;
+            padding: 50px 20px;
+            text-align: center;
+        }
+
+        .features h3 {
+            font-size: 2rem;
+            margin-bottom: 30px;
+        }
+
+        .features p {
+            font-size: 1.1rem;
+            margin-bottom: 10px;
+        }
+        .menu-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    background-color: rgba(0, 0, 0, 0.95);
+    display: none;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+}
+
+.menu-overlay.active {
+    display: flex;
+}
+
+.menu-overlay .close-btn {
+    position: absolute;
+    top: 20px;
+    right: 40px;
+    font-size: 3rem;
+    color: white;
+    cursor: pointer;
+}
+
+.menu-items {
+    list-style: none;
+    text-align: center;
+}
+
+.menu-items li {
+    margin: 20px 0;
+}
+
+.menu-items a {
+    color: white;
+    font-size: 2rem;
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+.menu-items a:hover {
+    color: #00acee;
+}
+body {
+      font-family: Arial, sans-serif;
+      background: #000;
+      color: #fff;
+      margin: 0;
+      padding: 0;
+    }
+
+    .chat-button {
+      position: fixed;
+      bottom: 20px;
+      right: 20px;
+      background-color: #333;
+      border-radius: 50%;
+      width: 60px;
+      height: 60px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      cursor: pointer;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.6);
+    }
+
+    .chat-button img {
+      width: 30px;
+      height: 30px;
+    }
+
+    .contact-form {
+      display: none;
+      position: fixed;
+      bottom: 100px;
+      right: 20px;
+      background-color: rgba(20, 20, 20, 0.95);
+      padding: 20px;
+      border-radius: 10px;
+      width: 300px;
+      box-shadow: 0 0 15px rgba(255,255,255,0.2);
+    }
+
+    .contact-form h2 {
+      font-size: 20px;
+      margin-bottom: 10px;
+    }
+
+    .contact-form input, .contact-form textarea {
+      width: 100%;
+      padding: 10px;
+      margin: 8px 0;
+      border: none;
+      border-radius: 5px;
+      background-color: #222;
+      color: #fff;
+    }
+
+    .contact-form button {
+      width: 100%;
+      padding: 10px;
+      background-color: #fff;
+      color: #000;
+      border: none;
+      border-radius: 5px;
+      font-weight: bold;
+      cursor: pointer;
+    }
+    body {
+      margin: 0;
+      font-family: 'Segoe UI', sans-serif;
+      background-color: #121212;
+      color: #fff;
+    }
+
+    .card-container {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 20px;
+      justify-content: center;
+      padding: 40px;
+    }
+
+    .card {
+      background-color: #1e1e1e;
+      border-radius: 15px;
+      padding: 20px;
+      width: 300px;
+      position: relative;
+      box-shadow: 0 0 10px rgba(255, 0, 255, 0.3);
+      border: 2px solid transparent;
+      background-clip: padding-box;
+      transition: transform 0.3s ease;
+    }
+
+    .card:hover {
+      transform: translateY(-5px);
+    }
+
+    .card h3 {
+      margin-top: 10px;
+      margin-bottom: 10px;
+      font-size: 20px;
+      font-weight: bold;
+    }
+
+    .card p {
+      font-size: 15px;
+      margin-bottom: 15px;
+    }
+
+    .card .tags {
+      margin-bottom: 10px;
+    }
+
+    .tag {
+      background: #ff00ff;
+      color: white;
+      padding: 4px 10px;
+      font-size: 12px;
+      border-radius: 20px;
+      margin-right: 5px;
+      display: inline-block;
+    }
+
+    .btn-group {
+      margin-top: 10px;
+    }
+
+    .btn {
+      background: #ff00ff;
+      border: none;
+      padding: 8px 14px;
+      margin: 5px 5px 0 0;
+      border-radius: 25px;
+      color: white;
+      font-weight: bold;
+      cursor: pointer;
+      font-size: 13px;
+    }
+
+    .btn:hover {
+      background: #e600e6;
+    }
+
+    .card .footer {
+      font-size: 13px;
+      margin-top: 15px;
+      border-top: 1px solid #444;
+      padding-top: 10px;
+    }
+
+    .phone {
+      color: #00ffcc;
+      text-decoration: none;
+      font-weight: bold;
+      display: flex;
+      align-items: center;
+    }
+
+    .phone::before {
+      content: "📞";
+      margin-right: 5px;
+    }
+
+    .highlight {
+      font-weight: bold;
+      color: #fff;
+    }
+
+    .image-card {
+      background: url('https://images.unsplash.com/photo-1496345963210-1f1a1c3fca5b') no-repeat center center/cover;
+      color: white;
+    }
+    .card {
+  background-color: #1e1e1e;
+  border-radius: 15px;
+  padding: 20px;
+  width: 300px;
+  position: relative;
+  box-shadow: 0 0 10px rgba(255, 0, 255, 0.3);
+  border: 2px solid transparent;
+  background-clip: padding-box;
+  transition: transform 0.3s ease, border 0.3s ease, box-shadow 0.3s ease;
+  cursor: pointer;
+}
+
+.card:hover {
+  transform: translateY(-5px);
+  border-color: #ff3333;
+  box-shadow: 0 0 20px rgba(255, 51, 51, 0.8);
+}
+.btn {
+  background: #ff00ff;
+  border: none;
+  padding: 8px 14px;
+  margin: 5px 5px 0 0;
+  border-radius: 25px;
+  color: white;
+  font-weight: bold;
+  cursor: pointer;
+  font-size: 13px;
+  transition: 0.3s ease;
+}
+
+.btn:hover {
+  background: #ff3333;
+}
+
+
+* {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      background-color: #1e1e1e;
+      color: white;
+    }
+
+    .card-container {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 30px;
+      padding: 40px;
+    }
+
+    .card {
+      width: 350px;
+      height: 333px;
+      border-radius: 20px;
+      overflow: hidden;
+      position: relative;
+      box-shadow: 0 0 12px rgba(255, 255, 255, 0.1);
+      background: black;
+      text-align: center;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      cursor: pointer;
+    }
+
+    .card:hover {
+      transform: scale(1.05);
+      box-shadow: 0 0 20px rgba(255, 0, 0, 0.7);
+    }
+
+    .background-video {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      z-index: 0;
+    }
+
+    .card-content {
+      position: relative;
+      z-index: 1;
+      background-color: rgba(0, 0, 0, 0.6);
+      padding: 20px;
+      border-radius: 15px;
+      backdrop-filter: blur(5px);
+    }
+
+    iframe {
+      width: 100%;
+      height: 100%;
+      border-radius: 20px;
+      filter: invert(100%);
+    }
+
+    button {
+      margin-top: 10px;
+      padding: 10px 15px;
+      background: orange;
+      color: #000;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      transition: transform 0.3s;
+       background :0.3s;
+    }
+
+    button:hover {
+      transform: scale(1.05);
+      background: red;
+      color: white;
+    }
+
+    .subject-panel {
+      display: none;
+      position: fixed;
+      top: 15%;
+      left: 50%;
+      transform: translateX(-50%);
+      background: #222;
+      padding: 20px;
+      border: 2px solid #555;
+      border-radius: 10px;
+      z-index: 1000;
+      width: 350px;
+    }
+
+    .subject-panel h3 {
+      margin-top: 0;
+      text-align: center;
+    }
+
+    .subject-panel label {
+      display: block;
+      margin: 8px 0;
+      cursor: pointer;
+    }
+
+    .panel-buttons {
+      display: flex;
+      justify-content: space-between;
+      margin-top: 15px;
+    }
+
+    .panel-buttons button {
+      width: 48%;
+    }
+
+    /*   last  part  */
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      margin: 0;
+      background-color: #101820;
+      color: #fff;
+    }
+
+    .footer {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-around;
+      background: linear-gradient(135deg, #0f2027, #203a43, #2c5364);
+      padding: 50px 20px 30px;
+      text-align: center;
+      animation: fadeInUp 1.5s ease forwards;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .footer-logo {
+      position: absolute;
+      top: 20px;
+      left: 20px;
+      max-width: 100px;
+      border-radius: 10px;
+      box-shadow: 0 0 10px #f7d038;
+      animation: logoFade 2s ease-out forwards;
+    }
+
+    .footer-section {
+      width: 28%;
+      min-width: 260px;
+      margin-bottom: 30px;
+      opacity: 0;
+      transform: translateY(20px);
+      animation: fadeInUp 1.2s ease forwards;
+      background: rgba(255, 255, 255, 0.05);
+      padding: 20px;
+      border-radius: 12px;
+      box-shadow: 0 8px 16px rgba(0,0,0,0.3);
+      transition: transform 0.3s ease;
+    }
+
+    .footer-section:hover {
+      transform: translateY(-5px) scale(1.02);
+    }
+
+    .footer-section:nth-child(2) { animation-delay: 0.3s; }
+    .footer-section:nth-child(3) { animation-delay: 0.6s; }
+
+    .footer-section h3 {
+      color: #f7d038;
+      font-size: 22px;
+      margin-bottom: 14px;
+      border-bottom: 2px solid #f7d038;
+      padding-bottom: 6px;
+    }
+
+    .footer-section p {
+      margin: 6px 0;
+      font-size: 15px;
+      transition: color 0.3s ease;
+    }
+
+    .footer-section p:hover {
+      color: #ffcc00;
+    }
+
+    .footer-bottom {
+      text-align: center;
+      background-color: #0d1117;
+      padding: 14px;
+      font-size: 13px;
+      border-top: 1px solid #333;
+      color: #bbb;
+      letter-spacing: 0.5px;
+    }
+
+    @keyframes fadeInUp {
+      from {
+        opacity: 0;
+        transform: translateY(30px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    @keyframes logoFade {
+      from {
+        opacity: 0;
+        transform: scale(0.5);
+      }
+      to {
+        opacity: 1;
+        transform: scale(1);
+      }
+    }
+
+    @media (max-width: 768px) {
+      .footer {
+        flex-direction: column;
+        align-items: center;
+      }
+
+      .footer-section {
+        width: 90%;
+      }
+
+      .footer-logo {
+        position: static;
+        margin-bottom: 20px;
+      }
+    }
+    /*  coures name  */
+    .course-names {
+      margin-top: 10px;
+      font-weight: bold;
+      font-size: 15px;
+      white-space: nowrap;
+    }
+    marquee {
+      font-size: 16px;
+      font-weight: bold;
+      color: #ffd700;
+      background:none;
+      padding: 10px;
+      
+    }
+
+
+    </style>
+</head>
+<body>
+    <div class="hero">
+        
+        <div class="overlay"></div>
+        <nav>
+            <div class="logo">skill unify Academy</div>
+            <div class="menu-toggle">&#9776;</div>
+        </nav>
+        <div class="content">
+            <h1>WELCOME TO Spoken English Academy</h1>
+            <h1> The SKILL UNIFY ACADEMY </h1>
+            <p>Build your confidence in English with expert-led classes and interactive sessions.</p>
+            <h2>Unlock the Power of English Communication</h2>
+            <p>Join our expert-led Spoken English programs and boost your fluency, confidence, and career prospects.</p>
+<!-- add breaking news -->
+<div class="course-names">
+  B.C.A &nbsp;|&nbsp; B.Tech &nbsp;|&nbsp; Data Science &nbsp;|&nbsp; B.Sc. Comp &nbsp;|&nbsp; M.C.A &nbsp;|&nbsp; Pol Tech &nbsp;|&nbsp; MAKAUT/WBUT & Autonomous University
+</div>
+</div>
+
+<marquee behavior="scroll" direction="left" scrollamount="6">
+  Spoken English Beginner | Advanced Spoken English | IELTS Speaking | Interview & Personality Development | Fluency Booster | Public Speaking | Accent Training | Corporate Communication Skills
+</marquee>            
+            <div class="scroll-btn">&#8595; Scroll to Learn More</div>
+        </div>
+    </div>
+    <nav>
+        <div class="logo">skill unify Academy</div>
+        <div class="menu-toggle" onclick="toggleMenu()">&#9776;</div>
+    </nav>
+    
+    <div class="menu-overlay" id="menuOverlay">
+        <span class="close-btn" onclick="toggleMenu()">&times;</span>
+        <ul class="menu-items">
+            <li><a href="#">Home</a></li>
+            <li><a href="#">Events</a></li>
+            <li><a href="#">Subjects</a></li>
+            <li><a href="#">About Us</a></li>
+            <li><a href="#">Pricing</a></li>
+            <li><a href="#">Admin Portal</a></li>
+        </ul>
+    </div>
+     <!-- Chat Button -->
+  <div class="chat-button" onclick="toggleForm()">
+    💬
+  </div>
+
+  <!-- Contact Form -->
+  <div class="contact-form" id="contactForm">
+    <h2>Get in Touch</h2>
+    <input type="text" placeholder="Full Name" required />
+    <input type="email" placeholder="Email" required />
+    <textarea rows="4" placeholder="My query is:" required></textarea>
+    <button>Send Now</button>
+  </div>
+
+  <div class="card-container">
+
+    <!-- Card 1 -->
+    <div class="card image-card">
+      <div class="tags">
+        <span class="tag">REGISTER</span>
+        <span class="tag">PAY</span>
+        <span class="tag">WELCOME</span>
+      </div>
+      <h3>Annual Birthday Event</h3>
+      <p>Expecting all the official members.</p>
+      <p>📲 <span class="highlight">Click here to JOIN FAMILY</span></p>
+      <p>📅 Upcoming Event: <strong>June–July 2025</strong></p>
+    </div>
+
+    <!-- Card 2 -->
+    <div class="card">
+      <p><strong>Last update:</strong> 12-January-2025</p>
+      <h3>Even semester batches 2025 have started</h3>
+      <p>Since <span class="highlight">12th January, 2025</span>.</p>
+      <div class="btn-group">
+        <button class="btn">CALL</button>
+        <button class="btn">REGISTER</button>
+        <button class="btn">JOIN</button>
+      </div>
+      <div class="footer">
+        <a href="tel:+919000000000" class="phone">Click here to call!</a><br/>
+        by <strong>Prabir sarkar (Founder)</strong>
+      </div>
+    </div>
+
+    <!-- Card 3 -->
+    <div class="card">
+      <p><strong>Ongoing ICSEbatch:</strong> January → June 2025</p>
+      <h3>ICSE (JOINT Entrance) batch is ongoing.</h3>
+      <p>Contact soon for enrollment.</p>
+      <div class="btn-group">
+        <button class="btn">CALL</button>
+        <button class="btn">REGISTER</button>
+        <button class="btn">JOIN</button>
+      </div>
+      <div class="footer">
+        <a href="tel:+919000000000" class="phone">Click here to call!</a><br/>
+        by <strong> Prabir sarkar (Founder)</strong>
+      </div>
+    </div>
+
+  </div>
+   
+
+
+    <script>
+        document.querySelector('.scroll-btn').addEventListener('click', () => {
+            document.querySelector('.features').scrollIntoView({ behavior: 'smooth' });
+        });
+        function toggleMenu() {
+        document.getElementById("menuOverlay").classList.toggle("active");
+    }
+    function toggleForm() {
+      const form = document.getElementById("contactForm");
+      form.style.display = form.style.display === "block" ? "none" : "block";
+    }
+    </script>
+
+
+<div class="card-container">
+
+  <!-- Card 1: Event Gallery -->
+  <div class="card video-card">
+    <video autoplay muted loop playsinline class="background-video">
+      <source src="https://cdn.pixabay.com/video/2023/10/20/189294-875884100_large.mp4" type="video/mp4">
+      Your browser does not support the video tag.
+    </video>
+    <div class="card-content">
+      <h2><strong>EVENT GALLERY</strong></h2>
+      <p>Nothing stays forever if you don’t enjoy. Neither people, not even knowledge. So, to relax a bit from a regular career pressure, we arrange multiple cultural and social events : Annual Event (Sep–Oct).</p>
+      <button onclick="alert('Viewing gallery')">View Gallery</button>
+    </div>
+  </div>
+
+  <!-- Card 2: Google Map -->
+  <div class="card map-card ">
+    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3679.16925418772!2d88.39326367476252!3d22.759099226110145!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x39f899aa114efb0f%3A0xf345029031347802!2sSwami%20Vivekananda%20University!5e0!3m2!1sen!2sin!4v1743009428989!5m2!1sen!2sin" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+  </div>
+
+  <!-- Card 3: Subject Overview -->
+  <div class="card subject-card video-card">
+    <video autoplay muted loop playsinline class="background-video">
+      <source src="https://cdn.pixabay.com/video/2023/03/27/157365-815113671_tiny.mp4" type="video/mp4">
+      Your browser does not support the video tag.
+    </video>
+    <div class="card-content">
+      <h2><strong>SUBJECT OVERVIEW</strong></h2>
+      <p>Professional and industrial level guidance is provided based on the semester syllabus of MAKAUT and several autonomous universities. Proper career-roadmaps for undergraduate and postgraduate students are designed toward IT, Development & Designing careers.</p>
+      <button onclick="openCoursePanel()">Explore Course</button>
+    </div>
+  </div>
+</div>
+
+<!-- Subject Panel -->
+<div class="subject-panel" id="subjectPanel">
+  <h3>Spoken English Topics</h3>
+  <form id="subjectForm">
+    <label><input type="checkbox" name="subject"> Grammar Basics</label>
+    <label><input type="checkbox" name="subject"> Vocabulary Building</label>
+    <label><input type="checkbox" name="subject"> Conversation Practice</label>
+    <label><input type="checkbox" name="subject"> Pronunciation Techniques</label>
+    <label><input type="checkbox" name="subject"> Listening Skills</label>
+    <label><input type="checkbox" name="subject"> Writing Emails</label>
+    <label><input type="checkbox" name="subject"> Interview Preparation</label>
+    <label><input type="checkbox" name="subject"> Business English</label>
+    <label><input type="checkbox" name="subject"> Group Discussions</label>
+    <label><input type="checkbox" name="subject"> Presentation Skills</label>
+  </form>
+  <div class="panel-buttons">
+    <button type="button" onclick="resetSubjects()">Reset</button>
+    <button type="button" onclick="closeCoursePanel()">Close</button>
+  </div>
+</div>
+
+<!-- JavaScript -->
+<script>
+  function openCoursePanel() {
+    document.getElementById('subjectPanel').style.display = 'block';
+  }
+
+  function closeCoursePanel() {
+    document.getElementById('subjectPanel').style.display = 'none';
+  }
+
+  function resetSubjects() {
+    const checkboxes = document.querySelectorAll('#subjectForm input[type="checkbox"]');
+    checkboxes.forEach(cb => cb.checked = false);
+  }
+</script>
+<!-- laet part  -->
+ <!-- Add your logo here -->
+ <footer class="footer">
+  
+
+  <div class="footer-section">
+    <h3>Founder & Trainer</h3>
+    <p><strong>Ms. Ananya Sen (M.A. in English)</strong></p>
+    <p>IELTS & Soft Skill Expert</p>
+    <p>Former British Language Institute Faculty</p>
+  </div>
+
+  <div class="footer-section">
+    <h3>Contact Us</h3>
+    <p>📞 +91 9123456780</p>
+    <p>✉️ info@speakfluentacademy.in</p>
+    <p>📘 FB: @SpeakFluentAcademy</p>
+    <p>🌐 www.speakfluentacademy.in</p>
+  </div>
+
+  <div class="footer-section">
+    <h3>Location</h3>
+    <p>📍 23A Central Avenue Road, Ballygunge</p>
+    <p>Kolkata, West Bengal, 700019</p>
+    <p>🗺️ Google Maps: <a href="#" style="color: #f7d038; text-decoration: underline;">View Location</a></p>
+  </div>
+</footer>
+
+<div class="footer-bottom">
+  &copy;  2025 skill unify Academy. All rights reserved.
+</div>
+
+
+
+
+
+<!---- part under -->
+<section class="features">
+  <h3>Our Programs</h3>
+  <p>Basic to Advanced Spoken English</p>
+  <p>Personality Development</p>
+  <p>Interview Preparation</p>
+  <p>One-on-One Coaching</p>
+</section>
+
+
+
+
+</body>
+</html>
