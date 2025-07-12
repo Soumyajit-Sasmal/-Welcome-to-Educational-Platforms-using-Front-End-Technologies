@@ -22,9 +22,9 @@ __✅ Google Maps Embed__
 
 __✅ Font Awesome (Icons)__
 ## 👨‍💼 Project Author
-###Name: Soumayjit Sasmal
+### Name: Soumayjit Sasmal
 
-##🔗 LinkedIn Profile : linkedin.com/in/soumyajit-sasmal-a05895353
+## 🔗 LinkedIn Profile : [👋 Welcome to My Profile!](linkedin.com/in/soumyajit-sasmal-a05895353)
 
 
 
