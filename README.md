@@ -1,5 +1,5 @@
 #  🗣️ SpeakFluent – Spoken English Academy Website   <br>
-## 🌐 Live Demo : [👋 Welcome to My web pages](https://soumyajit-sasmal.github.io/hhhhh/)  <br>
+## 🌐 Live Demo : [👋Hello and Welcome to My Website....Thanks for Visiting My Web Pages!](https://soumyajit-sasmal.github.io/hhhhh/)  <br>
 ## 💡 Features   
 **🧑‍🏫 Course Overview**
 
@@ -24,7 +24,7 @@ __✅ Font Awesome (Icons)__
 ## 👨‍💼 Project Author
 ### Name: Soumayjit Sasmal
 
-## 🔗 LinkedIn Profile : [👋 Welcome to My Profile!](linkedin.com/in/soumyajit-sasmal-a05895353)
+## 🔗 LinkedIn Profile : [👋 Welcome to My Profile!](www.linkedin.com/in/soumyajit-sasmal-a05895353)
 
 
 
